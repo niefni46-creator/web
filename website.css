@@ -1,0 +1,1659 @@
+/* ==================================================
+   RESET
+================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #24343a;
+    background: #faf8f6;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+
+
+/* ==================================================
+   WARNA WEBSITE
+
+   Background:
+   #FAF8F6
+
+   Biru muda:
+   #D5F6FB
+
+   Aksen:
+   #3B8C9E
+
+   Teks:
+   #24343A
+================================================== */
+
+
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.navbar-container {
+    max-width: 1350px;
+
+    height: 76px;
+
+    margin: auto;
+
+    padding: 0 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+
+/* LOGO */
+
+.logo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-weight: 700;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+}
+
+.logo img {
+    width: 43px;
+
+    height: 43px;
+
+    object-fit: contain;
+}
+
+
+
+/* ==================================================
+   MENU DESKTOP
+================================================== */
+
+.nav-menu {
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    margin-left: auto;
+}
+
+.nav-link,
+.nav-dropdown-button {
+    position: relative;
+
+    border: none;
+
+    background: transparent;
+
+    color: #24343a;
+
+    cursor: pointer;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    padding: 28px 0;
+}
+
+
+
+/* GARIS HOVER 100% */
+
+.nav-link::after,
+.nav-dropdown-button::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 21px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #3b8c9e;
+
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-dropdown-button:hover::after {
+    width: 100%;
+}
+
+.nav-link.active::after {
+    width: 100%;
+}
+
+
+
+/* DROPDOWN */
+
+.nav-dropdown {
+    position: relative;
+}
+
+.nav-dropdown-button {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.nav-dropdown-button span {
+    font-size: 13px;
+}
+
+
+
+/* MENU TURUNAN */
+
+.dropdown-menu {
+    position: absolute;
+
+    top: 70px;
+
+    left: -15px;
+
+    min-width: 210px;
+
+    padding: 10px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.10);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(10px);
+
+    transition: 0.25s ease;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.dropdown-menu a {
+    display: block;
+
+    padding: 11px 13px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+
+    color: #3d4c51;
+}
+
+.dropdown-menu a:hover {
+    background: #d5f6fb;
+
+    color: #24343a;
+}
+
+
+
+/* ==================================================
+   SEARCH
+================================================== */
+
+.search-box {
+    display: flex;
+
+    align-items: center;
+
+    border: 1px solid #d8e0e2;
+
+    border-radius: 30px;
+
+    background: white;
+
+    overflow: hidden;
+}
+
+.search-box input {
+    width: 125px;
+
+    padding: 9px 13px;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 13px;
+
+    background: transparent;
+}
+
+.search-box button {
+    padding: 8px 11px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+
+/* ==================================================
+   BAHASA
+================================================== */
+
+.language-selector {
+    position: relative;
+}
+
+.language-button {
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    font-size: 13px;
+}
+
+.language-menu {
+    position: absolute;
+
+    right: 0;
+
+    top: 38px;
+
+    width: 130px;
+
+    padding: 8px;
+
+    background: white;
+
+    border-radius: 10px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(8px);
+
+    transition: 0.2s;
+}
+
+.language-selector:hover .language-menu {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+.language-menu button {
+    display: block;
+
+    width: 100%;
+
+    padding: 9px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: transparent;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.language-menu button:hover {
+    background: #d5f6fb;
+}
+
+
+
+/* ==================================================
+   HAMBURGER
+================================================== */
+
+.hamburger {
+    display: none;
+
+    width: 40px;
+
+    height: 40px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.hamburger span {
+    display: block;
+
+    width: 25px;
+
+    height: 2px;
+
+    margin: 5px auto;
+
+    background: #24343a;
+
+    transition: 0.3s;
+}
+
+
+
+/* ==================================================
+   MOBILE MENU
+================================================== */
+
+.mobile-menu {
+    display: none;
+}
+
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    min-height: 650px;
+
+    overflow: hidden;
+
+    background: #d5f6fb;
+}
+
+
+
+/* SLIDE */
+
+.hero-slide {
+    position: absolute;
+
+    inset: 0;
+
+    background-position: center;
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    opacity: 0;
+
+    transition: opacity 0.9s ease;
+
+    visibility: hidden;
+}
+
+.hero-slide.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    z-index: 1;
+}
+
+
+
+/* OVERLAY */
+
+.hero-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 30, 38, 0.65),
+            rgba(10, 30, 38, 0.20)
+        );
+}
+
+
+
+/* HERO CONTENT */
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    height: 100%;
+
+    margin: auto;
+
+    padding: 100px 40px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    color: white;
+}
+
+.hero-label {
+    margin-bottom: 15px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.hero-content h1 {
+    max-width: 850px;
+
+    margin-bottom: 20px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(40px, 6vw, 78px);
+
+    line-height: 1.08;
+}
+
+.hero-description {
+    max-width: 620px;
+
+    margin-bottom: 30px;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+
+
+/* HERO BUTTON */
+
+.hero-button {
+    display: inline-block;
+
+    padding: 13px 27px;
+
+    border: 1px solid white;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.hero-button:hover {
+    background: white;
+
+    color: #24343a;
+}
+
+
+
+/* ==================================================
+   SLIDER BUTTON
+================================================== */
+
+.slider-button {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 10;
+
+    width: 48px;
+
+    height: 48px;
+
+    border: 1px solid rgba(255, 255, 255, 0.65);
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 20px;
+
+    transition: 0.3s;
+}
+
+.slider-button:hover {
+    background: rgba(255, 255, 255, 0.30);
+}
+
+.slider-prev {
+    left: 25px;
+}
+
+.slider-next {
+    right: 25px;
+}
+
+
+
+/* ==================================================
+   SLIDER DOT
+================================================== */
+
+.slider-dots {
+    position: absolute;
+
+    bottom: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+
+    height: 8px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: rgba(255, 255, 255, 0.5);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.dot.active {
+    width: 25px;
+
+    background: white;
+}
+
+
+
+/* ==================================================
+   MAIN CONTENT
+
+   Layer baru akan menutup hero ketika di-scroll.
+================================================== */
+
+.main-content {
+    position: relative;
+
+    z-index: 20;
+
+    background: #faf8f6;
+
+    box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.06);
+}
+
+
+
+/* ==================================================
+   SECTION
+================================================== */
+
+.section {
+    padding: 100px 30px;
+}
+
+.section-light {
+    background: #faf8f6;
+}
+
+.section-blue {
+    background: #d5f6fb;
+}
+
+.section-container {
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: auto;
+}
+
+
+
+/* ==================================================
+   SECTION HEADING
+================================================== */
+
+.section-heading {
+    max-width: 750px;
+
+    margin-bottom: 45px;
+}
+
+.section-label {
+    margin-bottom: 12px;
+
+    color: #3b8c9e;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+}
+
+.section h2 {
+    margin-bottom: 18px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(30px, 4vw, 48px);
+
+    line-height: 1.2;
+}
+
+.section p {
+    color: #5d696d;
+
+    line-height: 1.8;
+}
+
+
+
+/* ==================================================
+   SAMBUTAN
+================================================== */
+
+.two-column {
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.section-image img {
+    display: block;
+
+    width: 100%;
+
+    max-height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+}
+
+.section-text p {
+    max-width: 650px;
+
+    margin-bottom: 20px;
+}
+
+.text-button {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    color: #3b8c9e;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.text-button:hover {
+    transform: translateX(4px);
+}
+
+
+
+/* ==================================================
+   VISI MISI
+================================================== */
+
+.vision-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.vision-card {
+    position: relative;
+
+    padding: 35px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05);
+}
+
+.card-number {
+    color: #3b8c9e;
+
+    font-family: "Poppins", sans-serif;
+
+    font-weight: 700;
+}
+
+.vision-card h3 {
+    margin: 15px 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 25px;
+}
+
+
+
+/* ==================================================
+   JURUSAN
+================================================== */
+
+.card-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.info-card {
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.10);
+}
+
+.info-card > img {
+    display: block;
+
+    width: 100%;
+
+    height: 210px;
+
+    object-fit: cover;
+}
+
+.info-card-content {
+    padding: 25px;
+}
+
+.info-card-content > span {
+    color: #3b8c9e;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.info-card h3 {
+    margin: 10px 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 21px;
+}
+
+.info-card p {
+    margin-bottom: 18px;
+
+    font-size: 14px;
+}
+
+.info-card a {
+    color: #3b8c9e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.center-button {
+    margin-top: 40px;
+
+    text-align: center;
+}
+
+.outline-button {
+    display: inline-block;
+
+    padding: 12px 22px;
+
+    border: 1px solid #3b8c9e;
+
+    border-radius: 30px;
+
+    color: #3b8c9e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.outline-button:hover {
+    background: #3b8c9e;
+
+    color: white;
+}
+
+
+
+/* ==================================================
+   BERITA
+================================================== */
+
+.heading-with-button {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 30px;
+}
+
+.news-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.news-card {
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.news-card > img {
+    display: block;
+
+    width: 100%;
+
+    height: 220px;
+
+    object-fit: cover;
+}
+
+.news-content {
+    padding: 25px;
+}
+
+.news-date {
+    color: #3b8c9e;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.news-content h3 {
+    margin: 12px 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 20px;
+}
+
+.news-content p {
+    margin-bottom: 15px;
+
+    font-size: 14px;
+}
+
+.news-content a {
+    color: #3b8c9e;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+
+/* ==================================================
+   KEGIATAN
+================================================== */
+
+.activity-feature {
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 60px;
+
+    align-items: center;
+}
+
+.activity-feature img {
+    width: 100%;
+
+    height: 430px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+}
+
+.activity-feature h3 {
+    margin: 15px 0;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 32px;
+}
+
+.activity-feature p {
+    margin-bottom: 20px;
+}
+
+
+
+/* ==================================================
+   GURU
+================================================== */
+
+.teacher-placeholder {
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+
+    padding: 35px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.teacher-circle {
+    width: 130px;
+
+    height: 130px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #d5f6fb;
+
+    color: #3b8c9e;
+
+    font-weight: 700;
+}
+
+.teacher-placeholder h3 {
+    margin-bottom: 10px;
+
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+/* ==================================================
+   PRESTASI
+================================================== */
+
+.achievement-box {
+    display: grid;
+
+    grid-template-columns: auto 1fr auto;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding: 35px;
+
+    background: white;
+
+    border-radius: 20px;
+}
+
+.achievement-number {
+    color: #3b8c9e;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 35px;
+
+    font-weight: 700;
+}
+
+.achievement-box h3 {
+    margin-bottom: 8px;
+
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+/* ==================================================
+   SPMB
+================================================== */
+
+.spmb-section {
+    position: relative;
+
+    padding: 110px 30px;
+
+    background:
+        linear-gradient(
+            rgba(20, 65, 75, 0.82),
+            rgba(20, 65, 75, 0.82)
+        ),
+        url("images/hero-2.jpg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    color: white;
+
+    text-align: center;
+}
+
+.spmb-content {
+    max-width: 700px;
+
+    margin: auto;
+}
+
+.spmb-section .section-label {
+    color: #d5f6fb;
+}
+
+.spmb-section h2 {
+    margin-bottom: 15px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: clamp(32px, 5vw, 55px);
+}
+
+.spmb-section p {
+    margin-bottom: 30px;
+
+    color: rgba(255, 255, 255, 0.85);
+
+    line-height: 1.8;
+}
+
+
+
+/* ==================================================
+   PENGUMUMAN
+================================================== */
+
+.announcement {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 30px;
+
+    border: 1px solid #e1e7e8;
+
+    border-radius: 18px;
+}
+
+.announcement span {
+    color: #3b8c9e;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.announcement h3 {
+    margin: 8px 0;
+
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.footer {
+    background: #1e3339;
+
+    color: white;
+
+    padding-top: 65px;
+}
+
+.footer-container {
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 0 30px 50px;
+
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+
+    gap: 45px;
+}
+
+.footer-brand img {
+    width: 55px;
+
+    margin-bottom: 15px;
+}
+
+.footer-brand h3 {
+    margin-bottom: 10px;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 16px;
+}
+
+.footer-brand p {
+    max-width: 300px;
+
+    color: rgba(255, 255, 255, 0.7);
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+.footer-column {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.footer-column h4 {
+    margin-bottom: 10px;
+
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-column a,
+.footer-column p {
+    color: rgba(255, 255, 255, 0.7);
+
+    font-size: 13px;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    padding: 20px 30px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+    color: rgba(255, 255, 255, 0.55);
+
+    text-align: center;
+
+    font-size: 12px;
+}
+
+
+
+/* ==================================================
+   RESPONSIVE TABLET
+================================================== */
+
+@media (max-width: 1050px) {
+
+    .nav-menu {
+        gap: 15px;
+    }
+
+    .search-box input {
+        width: 100px;
+    }
+
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+
+/* ==================================================
+   RESPONSIVE HP
+================================================== */
+
+@media (max-width: 850px) {
+
+
+    /* NAVBAR */
+
+    .navbar-container {
+        height: 68px;
+
+        padding: 0 20px;
+    }
+
+    .nav-menu,
+    .language-selector {
+        display: none;
+    }
+
+    .search-box {
+        margin-left: auto;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+
+
+    /* MOBILE MENU */
+
+    .mobile-menu {
+        display: block;
+
+        position: fixed;
+
+        top: 68px;
+
+        left: 0;
+
+        width: 100%;
+
+        height: calc(100vh - 68px);
+
+        padding: 25px 20px;
+
+        overflow-y: auto;
+
+        background: white;
+
+        transform: translateX(100%);
+
+        transition: transform 0.35s ease;
+    }
+
+    .mobile-menu.open {
+        transform: translateX(0);
+    }
+
+    .mobile-menu > a,
+    .mobile-dropdown-button {
+        display: flex;
+
+        justify-content: space-between;
+
+        width: 100%;
+
+        padding: 16px 5px;
+
+        border: none;
+
+        border-bottom: 1px solid #e7eded;
+
+        background: transparent;
+
+        color: #24343a;
+
+        font-size: 15px;
+
+        font-weight: 600;
+
+        text-align: left;
+
+        cursor: pointer;
+    }
+
+
+
+    /* SUBMENU */
+
+    .mobile-submenu {
+        display: none;
+
+        padding-left: 15px;
+    }
+
+    .mobile-dropdown.open .mobile-submenu {
+        display: block;
+    }
+
+    .mobile-submenu a {
+        display: block;
+
+        padding: 13px 5px;
+
+        color: #5d696d;
+
+        font-size: 14px;
+    }
+
+    .mobile-dropdown.open
+    .mobile-dropdown-button span {
+        transform: rotate(45deg);
+    }
+
+
+
+    /* BAHASA HP */
+
+    .mobile-language {
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        padding: 20px 5px;
+
+        font-size: 14px;
+
+        font-weight: 600;
+    }
+
+    .mobile-language div {
+        display: flex;
+
+        gap: 5px;
+    }
+
+    .mobile-language button {
+        padding: 6px 9px;
+
+        border: 1px solid #d5e0e2;
+
+        border-radius: 6px;
+
+        background: white;
+
+        cursor: pointer;
+    }
+
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero-content {
+        padding: 90px 25px 50px;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(36px, 10vw, 60px);
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+
+    /* SECTION */
+
+    .section {
+        padding: 75px 20px;
+    }
+
+    .two-column,
+    .activity-feature {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .section-image {
+        order: 1;
+    }
+
+    .section-text {
+        order: 2;
+    }
+
+    .vision-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .heading-with-button {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .achievement-box {
+        grid-template-columns: 1fr;
+    }
+
+    .announcement {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .activity-feature img {
+        height: 300px;
+    }
+
+
+
+    /* FOOTER */
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+}
+
+
+
+/* ==================================================
+   HP KECIL
+================================================== */
+
+@media (max-width: 500px) {
+
+    .logo span {
+        display: none;
+    }
+
+    .search-box input {
+        width: 90px;
+    }
+
+    .slider-button {
+        width: 40px;
+
+        height: 40px;
+
+        font-size: 17px;
+    }
+
+    .slider-prev {
+        left: 10px;
+    }
+
+    .slider-next {
+        right: 10px;
+    }
+
+    .teacher-placeholder {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .teacher-circle {
+        width: 100px;
+
+        height: 100px;
+    }
+
+}
