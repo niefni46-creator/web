@@ -116,13 +116,13 @@ dots.forEach((dot, index) => {
 
 
 
-/* OTOMATIS SETIAP 5 DETIK */
+/* OTOMATIS SETIAP 8 DETIK */
 
 setInterval(() => {
 
     nextSlide();
 
-}, 5000);
+}, 8000);
 
 
 
